@@ -1,6 +1,13 @@
-﻿namespace AuthService.Core.Interfaces
+﻿using AuthService.Core.DTOs;
+using AuthService.Core.DTOs.Credentials;
+
+namespace AuthService.Core.Interfaces
 {
-    internal interface ICredentialsService
+    public interface ICredentialsService
     {
+        Task<OperationStatus> GetCredentials(GetCredentialsDTO dto);
+        Task<OperationStatus> CreateCredentials(CreateCredentialsDTO dto);
+        Task<OperationStatus> UpdateCredentials(UpdateCredentialsDTO dto);
+        Task<OperationStatus> DeleteCredentials<T>(T credentialsId);
     }
 }

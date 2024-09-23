@@ -1,6 +1,12 @@
-﻿namespace AuthService.Core.Interfaces
+﻿using AuthService.Core.DTOs;
+using AuthService.Core.DTOs.User;
+
+namespace AuthService.Core.Interfaces
 {
-    internal interface IUsersService
+    public interface IUsersService
     {
+        Task<OperationStatus> AddNewUser(CreateUserDTO dto);
+        Task<OperationStatus> UpdateUser(UpdateUserDTO dto);
+        Task<OperationStatus> DeleteUser<T>(T id);
     }
 }

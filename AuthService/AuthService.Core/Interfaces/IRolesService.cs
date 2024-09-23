@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AuthService.Core.DTOs;
+using AuthService.Core.DTOs.Roles;
 
 namespace AuthService.Core.Interfaces
 {
-    internal interface IRolesService
+    public interface IRolesService
     {
+        Task<OperationStatus> GetSystemRoles();
+        Task<OperationStatus> CreateRole(CreateRoleDTO dto);
+        Task<OperationStatus> DeleteRole<T>(T roleId);
     }
 }

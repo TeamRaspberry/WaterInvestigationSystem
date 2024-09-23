@@ -6,6 +6,7 @@ namespace AuthService.Core.Models
 {
     public class User
     {
+        public Guid UserKey { get; }
         private string _UserName = default!;
         public string UserName 
         { 
@@ -66,6 +67,12 @@ namespace AuthService.Core.Models
             this.Password = Password;
             this.Email = Email;
             this.Role = Role;
+        }
+
+        public User(Guid UserKey, string UserName, string Password, string Email, Role Role) 
+            : this(UserName, Password, Email, Role)
+        {
+            this.UserKey = UserKey;
         }
 
         public void ChangeRole(Role role)
