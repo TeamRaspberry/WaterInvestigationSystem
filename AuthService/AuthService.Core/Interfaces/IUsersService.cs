@@ -7,6 +7,6 @@ namespace AuthService.Core.Interfaces
     {
         Task<OperationStatus> AddNewUser(CreateUserDTO dto);
         Task<OperationStatus> UpdateUser(UpdateUserDTO dto);
-        Task<OperationStatus> DeleteUser<T>(T id);
+        Task<OperationStatus> DeleteUser(Guid id);
     }
 }

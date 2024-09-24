@@ -8,7 +8,7 @@ namespace AuthService.Persistance.Mappers
     {
         public Role MapFromDB(RoleEntity entity)
         {
-            return new Role(entity.Name, entity.IsDefault, entity.IsAdmin);
+            return new Role(entity.Id, entity.Name, entity.IsDefault, entity.IsAdmin);
         }
 
         public RoleEntity MapToDB(Role entity)

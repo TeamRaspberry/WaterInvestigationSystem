@@ -7,6 +7,6 @@ namespace AuthService.Core.Interfaces
     {
         Task<OperationStatus> GetSystemRoles();
         Task<OperationStatus> CreateRole(CreateRoleDTO dto);
-        Task<OperationStatus> DeleteRole<T>(T roleId);
+        Task<OperationStatus> DeleteRole(Guid roleId);
     }
 }

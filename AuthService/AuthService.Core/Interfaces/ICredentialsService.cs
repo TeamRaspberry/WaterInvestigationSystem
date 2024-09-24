@@ -8,6 +8,6 @@ namespace AuthService.Core.Interfaces
         Task<OperationStatus> GetCredentials(GetCredentialsDTO dto);
         Task<OperationStatus> CreateCredentials(CreateCredentialsDTO dto);
         Task<OperationStatus> UpdateCredentials(UpdateCredentialsDTO dto);
-        Task<OperationStatus> DeleteCredentials<T>(T credentialsId);
+        Task<OperationStatus> DeleteCredentials(Guid credentialsId);
     }
 }

@@ -63,6 +63,7 @@ namespace AuthService.Core.Models
 
         public User(string UserName, string Password, string Email, Role Role)
         {
+            this.UserKey = Guid.NewGuid();
             this.UserName = UserName;
             this.Password = Password;
             this.Email = Email;
