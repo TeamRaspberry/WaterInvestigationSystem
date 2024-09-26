@@ -63,7 +63,6 @@ namespace AuthService.Core.Models
 
         public User(string UserName, string Password, string Email, Role Role)
         {
-            this.UserKey = Guid.NewGuid();
             this.UserName = UserName;
             this.Password = Password;
             this.Email = Email;
@@ -80,27 +79,5 @@ namespace AuthService.Core.Models
         {
             this.Role = role;
         }
-
-        #region [operators overriding]
-        public static bool operator ==(User left, User right)
-        {
-            return left.UserName == right.UserName;
-        }
-
-        public static bool operator !=(User left, User right)
-        {
-            return left.UserName != right.UserName;
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return obj is User && ((User)obj).UserName == this.UserName;
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-        #endregion
     }
 }

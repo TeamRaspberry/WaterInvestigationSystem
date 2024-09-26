@@ -30,34 +30,12 @@
             : this(IsDefault, IsAdmin)
         {
             this.Name = Name;
-            this.RoleKey = Guid.NewGuid();
         }
 
         public Role(Guid RoleKey, string Name, bool IsDefault, bool IsAdmin) 
-            : this(IsDefault, IsAdmin)
+            : this(Name, IsDefault, IsAdmin)
         {
             this.RoleKey = RoleKey;
-            this.Name = Name;
-        }
-
-        public static bool operator ==(Role left, Role right)
-        {
-            return left.RoleKey == right.RoleKey;
-        }
-
-        public static bool operator !=(Role left, Role right)
-        {
-            return left.RoleKey != right.RoleKey;
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return obj is Role && ((Role)obj).RoleKey == this.RoleKey;
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
         }
     }
 }

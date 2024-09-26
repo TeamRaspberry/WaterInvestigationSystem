@@ -53,6 +53,8 @@ namespace AuthService.Persistance.Services
             User newUser = new User(dto.username, dto.password, dto.email, roleMapper.MapFromDB(userRole));
 
             UserEntity entity = userMapper.MapToDB(newUser);
+
+            entity.Id = Guid.NewGuid();
             
             context.Users.Add(entity);
 
@@ -61,7 +63,7 @@ namespace AuthService.Persistance.Services
             return new OperationStatus()
             {
                 IsSuccess = true,
-                Data = newUser.UserKey
+                Data = entity.Id
             };
 
         }

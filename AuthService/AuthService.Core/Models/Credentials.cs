@@ -9,18 +9,18 @@
 
         private List<User> AttachedUsers = new List<User>();
 
-        public Credentials(Guid CredentialsKey, string Name, string Surname, DateTime BirthDate)
+        public Credentials(string Name, string Surname, DateTime BirthDate, List<User> AttachedUsers)
         {
-            this.CredentialsKey = CredentialsKey;
             this.Name = Name;
             this.Surname = Surname;
             this.BirthDate = BirthDate;
+            this.AttachedUsers.AddRange(AttachedUsers);
         }
 
         public Credentials(Guid CredentialsKey, string Name, string Surname, 
-            DateTime BirthDate, List<User> AttachedUsers) : this(CredentialsKey, Name, Surname, BirthDate)
+            DateTime BirthDate, List<User> AttachedUsers) : this(Name, Surname, BirthDate, AttachedUsers)
         {
-            this.AttachedUsers.AddRange(AttachedUsers);
+            this.CredentialsKey = CredentialsKey;
         }
 
         public bool AttachUser(User user)
