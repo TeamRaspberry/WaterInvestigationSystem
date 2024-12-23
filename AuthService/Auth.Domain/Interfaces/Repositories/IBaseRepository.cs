@@ -12,9 +12,11 @@ namespace Auth.Application.Interfaces.Repositories
 
         Task<TEntity> CreateAsync(TEntity entity); // insert
 
-        Task<TEntity> UpdateAsync(TEntity entity); // update 
+        TEntity Update(TEntity entity); // update 
 
-        Task<TEntity> RemoveAsync(TEntity entity);  // delete
+        TEntity Remove(TEntity entity);  // delete
+
+        Task<int> SaveChangeAsync (); 
 
     }
 }
