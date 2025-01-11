@@ -11,12 +11,15 @@ class ResidualBlock(nn.Module):
         self.conv2 = nn.Conv2d(out_channels, out_channels, kernel_size=3, padding=1)
         self.bn2 = nn.BatchNorm2d(out_channels)
 
-        # Условие для проекции, если число каналов меняется
-        self.projection = nn.Conv2d(in_channels, out_channels, kernel_size=1) if in_channels != out_channels else None
+        self._use_projection: bool = in_channels != out_channels
+
+        if self._use_projection:
+            # Условие для проекции, если число каналов меняется
+            self.projection = nn.Conv2d(in_channels, out_channels, kernel_size=1)
 
     def forward(self, x):
         shortcut = x
-        if self.projection:
+        if self._use_projection:
             shortcut = self.projection(shortcut)
 
         x = F.relu(self.bn1(self.conv1(x)))
